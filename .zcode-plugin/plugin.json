@@ -1,0 +1,29 @@
+{
+  "name": "zops",
+  "version": "0.3.9",
+  "description": "Token-efficient Windows ops toolkit (v0.2.0 toolset): capped file read/grep/tree, smart shell runner, atomic find/replace edit, capped diff, code outline, workspace status, environment doctor and persistent per-workspace notes, file write, multi-file replace, JSON inspect, port owner lookup, local HTTP probe and a usage ledger. ZCode-native alternative to dsh-ops.",
+  "description_i18n": {
+    "en": "Token-efficient Windows ops toolkit (v0.3.0 toolset): capped file read/grep/tree, smart shell runner with rtk-style output filtering and dangerous-command gate, atomic edit, file write, capped diff, code outline, workspace status, environment doctor, per-workspace notes, multi-file replace, JSON inspect, port owner lookup, local HTTP probe and a usage ledger. ZCode-native alternative to dsh-ops.",
+    "zh-CN": "Windows 省 token 高效工具集（工具集 v0.3.0）：大文件分段/尾部读取、正则搜索、目录树、智能 Shell 执行（rtk 式按命令类型压缩输出 + 危险命令门禁 + 密钥遮蔽）、原子查找替换编辑、新建文件、封顶 diff、代码骨架扫描、工作区状态速览、环境体检、按工作区持久化便签、跨文件批量替换、JSON 速览、端口占用排查、本机 HTTP 探测、用量账本。dsh-ops 的 ZCode 原生替代。"
+  },
+  "author": {
+    "name": "2LC16"
+  },
+  "license": "MIT",
+  "mcpServers": {
+    "zops": {
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${CLAUDE_PLUGIN_ROOT}\\mcp\\server.ps1"
+      ],
+      "cwd": "${CLAUDE_PROJECT_DIR}"
+    }
+  },
+  "skills": "./skills",
+  "commands": "./commands"
+}
