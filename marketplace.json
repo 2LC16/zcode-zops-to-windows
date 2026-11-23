@@ -15,7 +15,7 @@
       "source": {
         "source": "url",
         "type": "zip",
-        "url": "https://github.com/2LC16/zcode-zops-to-windows/releases/download/v0.3.9/plugin.zip",
+        "url": "https://raw.githubusercontent.com/2LC16/zcode-zops-to-windows/main/dist/plugin.zip",
         "sha256": "da5b68ae8d74ff1c17a751c4a2f44c4d4790bda406a5f0bef41347b852312ad5",
         "path": "zcode-zops-to-windows"
       },

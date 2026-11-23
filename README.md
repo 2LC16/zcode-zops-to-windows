@@ -28,7 +28,7 @@ This repo ships its own marketplace catalog ([`marketplace.json`](./marketplace.
 
 2. Refresh, install **`zcode-zops-to-windows@2lc16-plugins`**, restart ZCode.
 
-The catalog points at the `plugin.zip` release asset (pinned by `sha256`), so installation does not require cloning this repo.
+The catalog points at [`dist/plugin.zip`](./dist/plugin.zip) (pinned by `sha256`), so installation does not require cloning this repo. The same bytes are attached to the [v0.3.9 release](https://github.com/2LC16/zcode-zops-to-windows/releases/tag/v0.3.9) when the upload host is reachable.
 
 ### Option B — manual
 

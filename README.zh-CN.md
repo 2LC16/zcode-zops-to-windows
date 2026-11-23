@@ -24,7 +24,7 @@
 
 2. 刷新后安装 **`zcode-zops-to-windows@2lc16-plugins`**，重启 ZCode。
 
-清单指向 v0.3.9 Release 的 `plugin.zip` 资产（带 `sha256` 固定），安装不需要 clone 本仓库。
+清单指向 [`dist/plugin.zip`](./dist/plugin.zip)（带 `sha256` 固定），安装不需要 clone 本仓库。上传主机可达时，同样的字节也会挂到 [v0.3.9 Release](https://github.com/2LC16/zcode-zops-to-windows/releases/tag/v0.3.9) 上。
 
 ### 方式 B — 手动
 
