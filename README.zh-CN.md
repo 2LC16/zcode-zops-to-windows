@@ -12,9 +12,19 @@
 
 ## 安装
 
-### 方式 A — 插件市场
+### 方式 A — 插件市场（推荐）
 
-marketplace 里有 `zcode-zops-to-windows@dev-zops` 就直接装，装完重启 ZCode。
+本仓库自带市场清单（[`marketplace.json`](./marketplace.json)），直接由 GitHub 托管。在 ZCode 里：
+
+1. 打开插件市场页 → 齿轮 → **市场源 / Marketplace Sources** → 按 URL 添加一个源：
+
+   ```
+   https://raw.githubusercontent.com/2LC16/zcode-zops-to-windows/main/marketplace.json
+   ```
+
+2. 刷新后安装 **`zcode-zops-to-windows@2lc16-plugins`**，重启 ZCode。
+
+清单指向 v0.3.9 Release 的 `plugin.zip` 资产（带 `sha256` 固定），安装不需要 clone 本仓库。
 
 ### 方式 B — 手动
 
@@ -28,7 +38,7 @@ C:\Users\<你>\.zcode\cli\plugins\cache\<marketplace>\zcode-zops-to-windows\<ver
 3. 在 `C:\Users\<你>\.zcode\cli\config.json` 里启用：
 
 ```json
-"plugins": { "enabledPlugins": { "zcode-zops-to-windows@dev-zops": true } }
+"plugins": { "enabledPlugins": { "zcode-zops-to-windows@2lc16-plugins": true } }
 ```
 
 4. 重启 ZCode 即可，MCP server 自动拉起。

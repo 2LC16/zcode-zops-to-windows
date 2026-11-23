@@ -16,9 +16,19 @@ AI coding agents burn most of their tokens on things that are not the task: full
 
 ## Install
 
-### Option A — plugin marketplace
+### Option A — marketplace (recommended)
 
-If your ZCode marketplace lists `zcode-zops-to-windows@dev-zops`, install it there and restart ZCode.
+This repo ships its own marketplace catalog ([`marketplace.json`](./marketplace.json)), served straight from GitHub. In ZCode:
+
+1. Open the plugin marketplace page → gear icon → **Marketplace Sources / 市场源** → add a source by URL:
+
+   ```
+   https://raw.githubusercontent.com/2LC16/zcode-zops-to-windows/main/marketplace.json
+   ```
+
+2. Refresh, install **`zcode-zops-to-windows@2lc16-plugins`**, restart ZCode.
+
+The catalog points at the `plugin.zip` release asset (pinned by `sha256`), so installation does not require cloning this repo.
 
 ### Option B — manual
 
@@ -32,7 +42,7 @@ C:\Users\<you>\.zcode\cli\plugins\cache\<marketplace>\zcode-zops-to-windows\<ver
 3. Enable it in `C:\Users\<you>\.zcode\cli\config.json`:
 
 ```json
-"plugins": { "enabledPlugins": { "zcode-zops-to-windows@dev-zops": true } }
+"plugins": { "enabledPlugins": { "zcode-zops-to-windows@2lc16-plugins": true } }
 ```
 
 4. Restart ZCode. Done — the MCP server spawns automatically.

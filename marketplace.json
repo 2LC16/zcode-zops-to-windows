@@ -1,0 +1,56 @@
+{
+  "name": "2lc16-plugins",
+  "description": "Community ZCode plugins by 2LC16: token-saving Windows ops toolkit.",
+  "description_i18n": {
+    "en": "Community ZCode plugins by 2LC16: token-saving Windows ops toolkit.",
+    "zh-CN": "2LC16 的 ZCode 社区插件：Windows 省 token 工具集。"
+  },
+  "owner": {
+    "name": "2LC16",
+    "url": "https://github.com/2LC16"
+  },
+  "plugins": [
+    {
+      "name": "zcode-zops-to-windows",
+      "source": {
+        "source": "url",
+        "type": "zip",
+        "url": "https://github.com/2LC16/zcode-zops-to-windows/releases/download/v0.3.9/plugin.zip",
+        "sha256": "da5b68ae8d74ff1c17a751c4a2f44c4d4790bda406a5f0bef41347b852312ad5",
+        "path": "zcode-zops-to-windows"
+      },
+      "displayName": "zcode-zops to Windows",
+      "displayName_i18n": {
+        "en": "zcode-zops to Windows",
+        "zh-CN": "zcode-zops to Windows — Windows 省 token 工具集"
+      },
+      "description": "Token-efficient Windows ops toolkit: 16 stdio MCP tools (capped read/grep/tree/diff/outline/status, smart shell runner with rtk-style filtering, dangerous-command gate and secret masking, atomic edit/write/replace, JSON inspect, port lookup, HTTP probe, notes, stats). PowerShell 5.1, zero dependencies.",
+      "description_i18n": {
+        "en": "Token-efficient Windows ops toolkit: 16 stdio MCP tools (capped read/grep/tree/diff/outline/status, smart shell runner with rtk-style filtering, dangerous-command gate and secret masking, atomic edit/write/replace, JSON inspect, port lookup, HTTP probe, notes, stats). PowerShell 5.1, zero dependencies.",
+        "zh-CN": "Windows 省 token 高效工具集：16 个 stdio MCP 工具（封顶读取/搜索/目录树/diff/骨架/状态、rtk 式智能 Shell 执行 + 危险命令门禁 + 密钥遮蔽、原子编辑/新建/批量替换、JSON 速览、端口排查、HTTP 探测、便签、用量账本）。PowerShell 5.1 实现，零外部依赖。"
+      },
+      "version": "0.3.9",
+      "author": {
+        "name": "2LC16"
+      },
+      "homepage": "https://github.com/2LC16/zcode-zops-to-windows",
+      "repository": "https://github.com/2LC16/zcode-zops-to-windows",
+      "category": "developer-tools",
+      "keywords": [
+        "windows",
+        "powershell",
+        "token-saving",
+        "mcp",
+        "file-io",
+        "shell",
+        "encoding"
+      ],
+      "publisherType": "community",
+      "componentTypes": [
+        "mcp",
+        "skill",
+        "command"
+      ]
+    }
+  ]
+}
