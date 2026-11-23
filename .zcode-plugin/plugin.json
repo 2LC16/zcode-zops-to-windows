@@ -1,5 +1,5 @@
 {
-  "name": "zops",
+  "name": "zcode-zops-to-windows",
   "version": "0.3.9",
   "description": "Token-efficient Windows ops toolkit (v0.2.0 toolset): capped file read/grep/tree, smart shell runner, atomic find/replace edit, capped diff, code outline, workspace status, environment doctor and persistent per-workspace notes, file write, multi-file replace, JSON inspect, port owner lookup, local HTTP probe and a usage ledger. ZCode-native alternative to dsh-ops.",
   "description_i18n": {
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "mcpServers": {
-    "zops": {
+    "zcode-zops-to-windows": {
       "command": "powershell",
       "args": [
         "-NoProfile",

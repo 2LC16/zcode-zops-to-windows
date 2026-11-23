@@ -1,12 +1,12 @@
-# zops — token-efficient Windows ops toolkit for ZCode
+# zcode-zops to Windows — token-efficient Windows ops toolkit for ZCode
 
 A single-file PowerShell MCP plugin that gives ZCode agents **16 token-saving tools** for everyday work on Windows: capped file reads, code search, atomic edits, smart command output filtering, secret masking, and more. Every output is budgeted; every failure is honest.
 
-> ~60–90% of an agent's token spend is raw command output and file dumps. zops caps and cleans all of it.
+> ~60–90% of an agent's token spend is raw command output and file dumps. zcode-zops caps and cleans all of it.
 
 ## Why
 
-AI coding agents burn most of their tokens on things that are not the task: full file dumps, verbose build logs, 40-line `git status` output, and re-reading files they already edited. zops replaces those calls with budgeted, structured, encoding-aware equivalents.
+AI coding agents burn most of their tokens on things that are not the task: full file dumps, verbose build logs, 40-line `git status` output, and re-reading files they already edited. zcode-zops replaces those calls with budgeted, structured, encoding-aware equivalents.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ AI coding agents burn most of their tokens on things that are not the task: full
 
 ### Option A — plugin marketplace
 
-If your ZCode marketplace lists `zops@dev-zops`, install it there and restart ZCode.
+If your ZCode marketplace lists `zcode-zops-to-windows@dev-zops`, install it there and restart ZCode.
 
 ### Option B — manual
 
@@ -26,16 +26,27 @@ If your ZCode marketplace lists `zops@dev-zops`, install it there and restart ZC
 2. Copy the whole folder into your ZCode plugin cache:
 
 ```
-C:\Users\<you>\.zcode\cli\plugins\cache\<marketplace>\zops\<version>\
+C:\Users\<you>\.zcode\cli\plugins\cache\<marketplace>\zcode-zops-to-windows\<version>\
 ```
 
 3. Enable it in `C:\Users\<you>\.zcode\cli\config.json`:
 
 ```json
-"plugins": { "enabledPlugins": { "zops@dev-zops": true } }
+"plugins": { "enabledPlugins": { "zcode-zops-to-windows@dev-zops": true } }
 ```
 
 4. Restart ZCode. Done — the MCP server spawns automatically.
+
+5. **Recommended** — tell your agent to actually reach for the tools. Generic "prefer efficient tools" wording was measured to change little; a concrete block with explicit exclusions works better. Append to your global `AGENTS.md` (`~/.zcode/AGENTS.md`) or the project's:
+
+````markdown
+## zcode-zops — use these by default
+- Read files with `read` (paged / `tail` / char budget) instead of `cat` / `type`; search with `grep`; survey a tree with `tree` / `outline` / `status`; inspect JSON with `json`.
+- Edit with `edit` (atomic find/replace + `expected_count`) and verify with `diff` — never read a whole file just to rewrite it. Create files with `write`.
+- Run commands through `run` (always `smart: true` when output can exceed ~6000 chars); dangerous commands need an explicit `confirm: true`.
+- Persist cross-turn findings in `notes` so they survive context compaction.
+- Fall back to native tools when: a task must outlive the ~30 s per-call host cap (builds, downloads — use the session's background shell), a tiny file reads in one go, an action needs an interactive editor panel, or a tool errors twice in a row.
+````
 
 ## The 16 tools
 

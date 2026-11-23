@@ -1,8 +1,8 @@
-# zops — 给 ZCode 的 Windows 省 token 工具集（中文说明）
+# zcode-zops to Windows — 给 ZCode 的 Windows 省 token 工具集（中文说明）
 
 单文件 PowerShell MCP 插件，给 ZCode agent **16 个省 token 工具**：封顶读文件、代码搜索、原子编辑、按命令类型压缩输出、密钥遮蔽等。所有输出有预算，所有失败都诚实。
 
-> agent 的 token 大头不是任务本身，而是原始命令输出和整文件倾倒。zops 把这些全部封顶、清洗、结构化。
+> agent 的 token 大头不是任务本身，而是原始命令输出和整文件倾倒。zcode-zops 把这些全部封顶、清洗、结构化。
 
 ## 环境要求
 
@@ -14,7 +14,7 @@
 
 ### 方式 A — 插件市场
 
-marketplace 里有 `zops@dev-zops` 就直接装，装完重启 ZCode。
+marketplace 里有 `zcode-zops-to-windows@dev-zops` 就直接装，装完重启 ZCode。
 
 ### 方式 B — 手动
 
@@ -22,16 +22,27 @@ marketplace 里有 `zops@dev-zops` 就直接装，装完重启 ZCode。
 2. 整个文件夹拷进 ZCode 插件缓存：
 
 ```
-C:\Users\<你>\.zcode\cli\plugins\cache\<marketplace>\zops\<version>\
+C:\Users\<你>\.zcode\cli\plugins\cache\<marketplace>\zcode-zops-to-windows\<version>\
 ```
 
 3. 在 `C:\Users\<你>\.zcode\cli\config.json` 里启用：
 
 ```json
-"plugins": { "enabledPlugins": { "zops@dev-zops": true } }
+"plugins": { "enabledPlugins": { "zcode-zops-to-windows@dev-zops": true } }
 ```
 
 4. 重启 ZCode 即可，MCP server 自动拉起。
+
+5. **建议**——顺手告诉智能体「默认就用这些工具」。实测：泛泛一句「优先用高效工具」几乎没用，写成带明确例外清单的具体块才有效。往全局 `AGENTS.md`（`~/.zcode/AGENTS.md`）或项目根的 AGENTS.md 追加：
+
+````markdown
+## zcode-zops — 默认优先调用
+- 读文件用 `read`（分页 / `tail` / 字数封顶）而不是 `cat`/`type`；搜代码用 `grep`；摸工程用 `tree` / `outline` / `status`；看 JSON 用 `json`。
+- 改文件用 `edit`（原子查找替换 + `expected_count`），改完用 `diff` 核验——不要「整读文件再重写」；新建文件用 `write`。
+- 跑命令用 `run`（输出可能超过 ~6000 字符时务必加 `smart: true`）；危险命令需显式 `confirm: true`。
+- 跨轮次关键结论写进 `notes`，这样上下文压缩后还在。
+- 这些场景回退原生工具：需要超出单次 ~30 秒宿主上限的长任务（构建/下载，走会话的后台 shell）、小文件一次性读取、需要专有交互面板、以及同一工具连续失败 2 次。
+````
 
 ## 16 个工具速览
 
